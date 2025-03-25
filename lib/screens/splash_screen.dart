@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,11 +19,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      // //exit full-screen
-      // SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-      // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      //     systemNavigationBarColor: Colors.white,
-      //     statusBarColor: Colors.white));
+      //exit full-screen
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+          systemNavigationBarColor: Colors.white,
+          statusBarColor: Colors.white));
 
       // log('\nUser: ${APIs.auth.currentUser}');
 
