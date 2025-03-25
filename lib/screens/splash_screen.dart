@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../main.dart';
-import '../../api/apis.dart';
-import 'auth/login_screen.dart';
+// import '../../../main.dart';
+// import '../../api/apis.dart';
+// import 'auth/login_screen.dart';
 import 'home_screen.dart';
 
 //splash screen
@@ -21,29 +21,24 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      //exit full-screen
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.white,
-          statusBarColor: Colors.white));
+      // //exit full-screen
+      // SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+      // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      //     systemNavigationBarColor: Colors.white,
+      //     statusBarColor: Colors.white));
 
-      log('\nUser: ${APIs.auth.currentUser}');
+      // log('\nUser: ${APIs.auth.currentUser}');
 
       //navigate
       Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (_) => APIs.auth.currentUser != null
-                ? const HomeScreen()
-                : const LoginScreen(),
-          ));
+          context, MaterialPageRoute(builder: (_) => const HomeScreen()));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     //initializing media query (for getting device screen size)
-    mq = MediaQuery.sizeOf(context);
+    var mq = MediaQuery.sizeOf(context);
 
     return Scaffold(
       //body

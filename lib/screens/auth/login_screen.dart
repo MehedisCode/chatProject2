@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:chat2/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,20 +20,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final bool _isAnimate = true;
+  bool _isAnimate = false;
 
   // Variable to store screen size
   late Size mq;
 
-  // @override
-  // void initState() {
-  //   super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-  //   //for auto triggering animation
-  //   Future.delayed(const Duration(milliseconds: 500), () {
-  //     setState(() => _isAnimate = true);
-  //   });
-  // }
+    //for auto triggering animation
+    Future.delayed(const Duration(milliseconds: 500), () {
+      setState(() => _isAnimate = true);
+    });
+  }
 
   // // handles google login button click
   // _handleGoogleBtnClick() {
@@ -125,7 +126,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     elevation: 1),
 
                 // on tap
-                onPressed: () {}, //_handleGoogleBtnClick,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                }, //_handleGoogleBtnClick,
 
                 //google icon
                 icon: Image.asset('assets/images/google.png',

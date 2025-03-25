@@ -1,12 +1,13 @@
 // import 'dart:developer';
 
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:chat2/screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:flutter_notification_channel/flutter_notification_channel.dart';
 // import 'package:flutter_notification_channel/notification_importance.dart';
 
-// import 'firebase_options.dart';
+import 'firebase_options.dart';
 // import 'screens/splash_screen.dart';
 import 'package:chat2/screens/auth/login_screen.dart';
 
@@ -14,12 +15,12 @@ import 'package:chat2/screens/auth/login_screen.dart';
 // late Size mq;
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   // //enter full-screen
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  // await _initializeFirebase();
+  await _initializeFirebase();
 
   // //for setting orientation to portrait only
   // SystemChrome.setPreferredOrientations(
@@ -27,8 +28,7 @@ Future<void> main() async {
   //     .then((value) {
   //   runApp(const MyApp());
   // });
-    runApp(const MyApp()); // temp
-
+  runApp(const MyApp()); // temp
 }
 
 class MyApp extends StatelessWidget {
@@ -52,19 +52,19 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
             )),
         home: Scaffold(
-          body: LoginScreen(),
+          body: SplashScreen(),
         ));
   }
 }
 
-// Future<void> _initializeFirebase() async {
-//   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+Future<void> _initializeFirebase() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-//   var result = await FlutterNotificationChannel().registerNotificationChannel(
-//       description: 'For Showing Message Notification',
-//       id: 'chats',
-//       importance: NotificationImportance.IMPORTANCE_HIGH,
-//       name: 'Chats');
+  // var result = await FlutterNotificationChannel().registerNotificationChannel(
+  //     description: 'For Showing Message Notification',
+  //     id: 'chats',
+  //     importance: NotificationImportance.IMPORTANCE_HIGH,
+  //     name: 'Chats');
 
-//   log('\nNotification Channel Result: $result');
-// }
+  // log('\nNotification Channel Result: $result');
+}
